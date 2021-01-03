@@ -1,0 +1,70 @@
+
+/* make the customizations */
+$theme-colors: (
+  "primary":#cd00cd
+);
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #343a40;
+  color: #eee;
+}
+
+footer.app-footer{
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.logo{
+  animation: rotation 2s linear infinite;
+  position: absolute;
+  margin: 5px 0 0 5px;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.main-content{
+  margin-top: 70px;
+}
+
+.jumbotron{
+  background: #3f474e;
+}
+
+.right-aligned{
+  text-align: right;
+}
+
+.left-aligned{
+  text-align: left;
+}
+
+.center-aligned{
+  text-align: center;
+}
+
+.clear{
+  clear: both;
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  25% { /* note that rotation from 0 to 20 deg happens in 25% time = 0.45 seconds. */
+    -webkit-transform: rotate(20deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+  }
+  75% {
+    -webkit-transform: rotate(-20deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}

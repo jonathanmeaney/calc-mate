@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { ConnectedRouter } from "connected-react-router";
+import { Provider } from "react-redux";
+import configureStore, { history } from "./store/configure-store";
+
+import App from "./app";
+
+const rootElement = document.getElementById("root");
+const persistedState = localStorage.getItem('calculation-companion')
+                       ? JSON.parse(localStorage.getItem('calculation-companion'))
+                       : {}
+const store = configureStore(persistedState);
+store.subscribe(()=>{
+  localStorage.setItem('calculation-companion', JSON.stringify(store.getState()));
+})
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
+  rootElement
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
