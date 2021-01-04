@@ -224,7 +224,7 @@ const Paye = ({
           </Form.Group>
 
           <Form.Group as={Row}>
-            <Form.Label column xs={labelCol}>SRCOP</Form.Label>
+            <Form.Label column xs={labelCol}>Std Cut Off (Year)</Form.Label>
             <Col xs={inputCol}>
               <InputGroup>
                 <InputGroup.Prepend>
@@ -247,7 +247,7 @@ const Paye = ({
           </Form.Group>
 
           <Form.Group as={Row}>
-            <Form.Label column xs={labelCol}>Tax Credit</Form.Label>
+            <Form.Label column xs={labelCol}>Tax Credits (Year)</Form.Label>
             <Col xs={inputCol}>
               <InputGroup>
                 <InputGroup.Prepend>
