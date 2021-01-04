@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { v4 as uuidv4 } from 'uuid';
+
+import { addCalculation } from "slices/calculations";
+import { frequencyNames } from 'constants/frequencies';
+import { taxStatusNames } from 'constants/tax-status';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
+
+import { frequencyMaxPeriodMap } from 'constants/frequencies';
 
 const Paye = ({
   labelCol,
   inputCol
 }) => {
-  const frequencyMaxPeriodMap = {
-    '1': 52,
-    '2': 12,
-    '3': 26,
-    '4': 13
-  };
-
+  const dispatch = useDispatch();
   const [calculationValues, setCalculationValues] = useState({
     pay: '',
     frequency: '1',
     period: '1',
+    taxStatus: '1',
     srcop: '35300',
     taxCredit: '3300',
     override: {
@@ -80,7 +81,7 @@ const Paye = ({
   const calculate = (e) => {
     e.preventDefault();
 
-    const { frequency } = calculationValues;
+    const { frequency, taxStatus } = calculationValues;
     const period = parseFloat(calculationValues.period);
     const pay = parseFloat(calculationValues.pay);
     const srcop = parseFloat(calculationValues.srcop);
@@ -134,11 +135,23 @@ const Paye = ({
       ...calculationValues,
       results
     });
+
+    dispatch(addCalculation({
+      inputs: {
+        pay,
+        frequency: frequencyNames[frequency],
+        period,
+        taxStatus: taxStatusNames[taxStatus]
+      },
+      type: 'PAYE',
+      value: paye,
+      country: 'IE'
+    }));
   }
 
   return (
     <Row>
-      <Col xs={12} md={8}>
+      <Col xs={12} md={7}>
         <br/>
         <Form>
           <Form.Group as={Row}>
@@ -189,6 +202,23 @@ const Paye = ({
                 value={calculationValues.period}
               >
                 {periodOptions()}
+              </Form.Control>
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row}>
+            <Form.Label column xs={labelCol}>Tax Status</Form.Label>
+            <Col xs={inputCol}>
+              <Form.Control
+                as='select'
+                name='taxStatus'
+                custom
+                onChange={updateCalculationValue}
+                value={calculationValues.taxStatus}
+              >
+                <option value='1'>Normal</option>
+                <option value='2'>Week 1</option>
+                <option value='3'>Emergency</option>
               </Form.Control>
             </Col>
           </Form.Group>
@@ -251,47 +281,16 @@ const Paye = ({
         </Form>
         <br/>
       </Col>
-      <Col xs={12} md={4}>
-        <h3>Results</h3>
+      <Col xs={12} md={5}>
+        <br/>
         {calculationValues.results && (
           <>
-            {/* <h4>Period</h4>
-            <Table striped bordered hover size='sm' variant='dark'>
-              <tbody>
-                <tr>
-                  <th>SRCOP</th>
-                  <td>{calculationValues.results.periodSrcop}</td>
-                </tr>
-                <tr>
-                  <th>Tax Credit</th>
-                  <td>{calculationValues.results.periodTaxCredit}</td>
-                </tr>
-              </tbody>
-            </Table>
-
-            <h4>Percentages</h4>
-            <Table striped bordered hover size='sm' variant='dark'>
-              <tbody>
-                <tr>
-                  <th>SRCOP</th>
-                  <td>{calculationValues.results.srcop20p}</td>
-                </tr>
-                <tr>
-                  <th>Tax Credit 40%</th>
-                  <td>{calculationValues.results.taxCredit40p}</td>
-                </tr>
-                <tr>
-                  <th>Tax Credit 20%</th>
-                  <td>{calculationValues.results.taxCredit20p}</td>
-                </tr>
-              </tbody>
-            </Table> */}
-
             <Card bg='success'>
               <Card.Body>
-                <h1 className='center-aligned' style={{'marginBottom': '0'}}>PAYE: <Badge variant="secondary">{calculationValues.results.paye}</Badge> </h1>
+                <h2 className='center-aligned' style={{'marginBottom': '0'}}>PAYE: <Badge variant="light">{calculationValues.results.paye}</Badge> </h2>
               </Card.Body>
             </Card>
+            <br/>
             <Accordion>
               <Card bg='dark'>
                 <Card.Header>

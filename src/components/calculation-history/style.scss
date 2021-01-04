@@ -1,0 +1,18 @@
+.calculation-history{
+  .history-card{
+    margin-bottom: 15px;
+
+    .inputs-table{
+      color: white;
+
+      tr:last-child{
+        border-bottom: 1px solid;
+      }
+    }
+  }
+
+  .card-list{
+    max-height: 500px;
+    overflow: auto;
+  }
+}

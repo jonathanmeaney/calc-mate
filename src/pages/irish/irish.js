@@ -9,10 +9,11 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
 import Paye from './calculations/paye';
+import CalculationHistory from 'components/calculation-history';
 
 const IrishPage = () => {
-  const labelCol = 3;
-  const inputCol = 9;
+  const labelCol = 4;
+  const inputCol = 8;
 
   const [key, setKey] = useState('paye');
 
@@ -57,21 +58,7 @@ const IrishPage = () => {
           <br/>
         </Col>
         <Col xs={12} md={4}>
-          <h2>History</h2>
-          <Card
-            bg='info'
-            text='white'
-          >
-            <Card.Header>01/01/2021 13:45:32</Card.Header>
-            <Card.Body>
-              <Card.Title>PAYE</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the bulk
-                of the card's content.
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer><Button block variant='light'>Open</Button></Card.Footer>
-          </Card>
+          <CalculationHistory />
         </Col>
       </Row>
     </div>
