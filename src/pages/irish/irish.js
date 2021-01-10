@@ -4,12 +4,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
 import Paye from './calculations/paye';
-import CalculationHistory from 'components/calculation-history';
 
 const IrishPage = () => {
   const labelCol = 4;
@@ -19,10 +17,9 @@ const IrishPage = () => {
 
   return (
     <div className='irish'>
-      <h1>Irish</h1>
+      <h2>Irish</h2>
       <Row>
-        <Col xs={12} md={8}>
-          <h2>Calculations</h2>
+        <Col>
           <Tabs
             id='calculation-tabs'
             defaultActiveKey='paye'
@@ -55,10 +52,6 @@ const IrishPage = () => {
               </Form>
             </Tab>
           </Tabs>
-          <br/>
-        </Col>
-        <Col xs={12} md={4}>
-          <CalculationHistory />
         </Col>
       </Row>
     </div>

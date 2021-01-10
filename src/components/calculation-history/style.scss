@@ -2,17 +2,21 @@
   .history-card{
     margin-bottom: 15px;
 
-    .inputs-table{
-      color: white;
+    .inputs-table-container{
+      font-size: 18px;
 
-      tr:last-child{
-        border-bottom: 1px solid;
+      .inputs-table{
+        color: white;
+
+        tr:last-child{
+          border-bottom: 1px solid;
+        }
       }
     }
   }
 
   .card-list{
-    max-height: 500px;
+    max-height: 100vh;
     overflow: auto;
   }
 }

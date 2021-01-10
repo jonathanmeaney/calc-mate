@@ -32,14 +32,14 @@ const CalculationHistory = () => {
 
     if(inputsRows.length > 0){
       inputTable = (
-        <>
+        <div className='inputs-table-container'>
           Inputs<br/>
           <Table responsive='sm' className='inputs-table'>
             <tbody>
               {inputsRows}
             </tbody>
           </Table>
-        </>
+        </div>
       );
     }
     return(

@@ -10,7 +10,9 @@ const calculationsSlice = createSlice({
   initialState,
   reducers: {
     add: (state, { payload }) => {
-      state.unshift(payload);
+      // put the latest calculation at the start of the array
+      // and maintain an array of 20 items total
+      return [payload, ...state.slice(0, 19)]
     },
     update: (state, { payload }) => {
       const index = state.findIndex(calculation => String(calculation.id) === String(payload.id));

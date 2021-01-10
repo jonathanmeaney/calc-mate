@@ -1,0 +1,23 @@
+.calculation-steps{
+  .step{
+    margin-bottom: 10px;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    .step-number{
+      position: absolute;
+      font-size: 20px;
+    }
+
+    .step-body{
+      margin-left: 40px;
+
+      .card-body{
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
