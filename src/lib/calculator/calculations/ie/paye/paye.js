@@ -47,8 +47,13 @@ class Paye {
     steps.push(`Tax Credit for period: ${taxCredit} / ${periods} * ${period} = ${periodTaxCredit}`);
 
     // Subtract the tax credit from the gross tax to get the tax payable
-    const taxPayable = (parseFloat(grossTax) - parseFloat(periodTaxCredit)).toFixed(2);
-    steps.push(`Gross tax less tax credits: ${grossTax} - ${periodTaxCredit} = ${taxPayable}`);
+    let taxPayable = (parseFloat(grossTax) - parseFloat(periodTaxCredit)).toFixed(2);
+    let taxPayableStep = `Gross tax less tax credits: ${grossTax} - ${periodTaxCredit} = ${taxPayable}`
+    if(taxPayable < 0){
+      taxPayable = 0;
+      taxPayableStep = `Gross tax less tax credits results in negative, 0 tax payable: 0`;
+    }
+    steps.push(taxPayableStep);
 
     steps.push(`Tax payable: ${taxPayable}`);
 

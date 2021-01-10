@@ -25,7 +25,7 @@ const CalculationHistory = () => {
       const value = inputs[key] || '';
       inputsRows.push(
         <tr key={uuidv4()}>
-          <td>{key}:</td><td><Badge variant='secondary'>{value}</Badge></td>
+          <td>{key}:</td><td><Badge variant='light'>{value}</Badge></td>
         </tr>
       )
     });
@@ -34,7 +34,7 @@ const CalculationHistory = () => {
       inputTable = (
         <div className='inputs-table-container'>
           Inputs<br/>
-          <Table responsive='sm' className='inputs-table'>
+          <Table size='sm' className='inputs-table'>
             <tbody>
               {inputsRows}
             </tbody>
@@ -53,7 +53,7 @@ const CalculationHistory = () => {
         <Card.Body>
           <Card.Title>{flag} {calculation.type} Calculation</Card.Title>
           {inputTable}
-          <Card.Title className='right-aligned'>{calculation.type}: <Badge variant='secondary'>{calculation.value}</Badge></Card.Title>
+          <Card.Title className='right-aligned'>{calculation.type}: <Badge variant='light'>{calculation.value}</Badge></Card.Title>
         </Card.Body>
       </Card>
     )
