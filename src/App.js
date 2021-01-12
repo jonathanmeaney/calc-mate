@@ -44,7 +44,7 @@ const App = () => {
   return (
     <div className="app">
       <Navbar bg="dark" variant="dark" fixed="top" expand="md">
-        <Navbar.Brand href="/">Calculation Companion <FaCalculator /></Navbar.Brand>
+        <Navbar.Brand href="/">Calc Mate <FaCalculator /></Navbar.Brand>
         <Navbar.Toggle aria-controls="main-nav" />
         <Navbar.Collapse id="main-nav">
           <Nav className="mr-auto">
@@ -52,7 +52,7 @@ const App = () => {
             <Nav.Link eventKey="2" as={Link} to='/irish' id='/irish' className={activeTab === '/irish' ? 'active' : activeTab === '/irish' ? 'active' : ''} onClick={updateActiveTab}>Irish</Nav.Link>
             <Nav.Link eventKey="3" as={Link} to='/help' id='/help' className={activeTab === '/help' ? 'active' : activeTab === '/help' ? 'active' : ''} onClick={updateActiveTab}>Help</Nav.Link>
             <Navitem>
-              <a href='https://github.com/jonathanmeaney/calculation-companion'  target='_blank' className='github-link'><DiGithubBadge /></a>
+              <a href='https://github.com/jonathanmeaney/calc-mate'  target='_blank' className='github-link'><DiGithubBadge /></a>
             </Navitem>
           </Nav>
         </Navbar.Collapse>

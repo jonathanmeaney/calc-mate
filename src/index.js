@@ -7,12 +7,12 @@ import configureStore, { history } from "./store/configure-store";
 import App from "./app";
 
 const rootElement = document.getElementById("root");
-const persistedState = localStorage.getItem('calculation-companion')
-                       ? JSON.parse(localStorage.getItem('calculation-companion'))
+const persistedState = localStorage.getItem('calc-mate')
+                       ? JSON.parse(localStorage.getItem('calc-mate'))
                        : {}
 const store = configureStore(persistedState);
 store.subscribe(()=>{
-  localStorage.setItem('calculation-companion', JSON.stringify(store.getState()));
+  localStorage.setItem('calc-mate', JSON.stringify(store.getState()));
 })
 
 ReactDOM.render(

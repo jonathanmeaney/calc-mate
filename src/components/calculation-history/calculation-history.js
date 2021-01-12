@@ -21,7 +21,7 @@ const CalculationHistory = () => {
     }
     const inputsRows = [];
     let inputTable = null;
-    Object.keys(inputs).forEach((key) => {
+    Object.keys(inputs).sort().forEach((key) => {
       const value = inputs[key] || '';
       inputsRows.push(
         <tr key={uuidv4()}>
