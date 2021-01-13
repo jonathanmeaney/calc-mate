@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useHistory } from "react-router-dom";
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -26,9 +24,7 @@ import NotFoundPage from './pages/not-found';
 import './styles.scss';
 
 const App = () => {
-  const dispatch = useDispatch();
   const location = useLocation();
-  const history = useHistory();
   const [activeTab, setActiveTab] = useState(location.pathname);
 
   const updateActiveTab = (tab) => {

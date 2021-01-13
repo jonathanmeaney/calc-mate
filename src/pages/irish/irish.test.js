@@ -1,21 +1,21 @@
 import React from 'react';
-import { shallow } from 'test/enzyme-adapter';
+import { shallow } from 'enzyme';
 
-import Irish from 'pages/irish';
+import IrishPage from 'pages/irish';
 
 
-describe('Irish', () => {
+describe('IrishPage', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Irish />);
+    wrapper = shallow(<IrishPage />);
   });
 
   it('renders the heading', () => {
-    const headings = wrapper.find('h1')
+    const headings = wrapper.find('h2')
     expect(headings.length).toEqual(1);
 
     const heading = headings.at(0);
-    expect(heading.props().title).toEqual('Not Found');
+    expect(heading.props().children).toEqual('Irish');
   });
 });

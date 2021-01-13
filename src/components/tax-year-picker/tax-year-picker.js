@@ -14,7 +14,7 @@ const TaxYearPicker = ({
   onChange,
   country
 }) => {
-  const [selectedValue, setSelectedValue] = useState();
+  const [selectedValue, setSelectedValue] = useState(String(new Date().getFullYear()));
 
   const selectValue = (e) => {
     setSelectedValue(e.currentTarget.value);

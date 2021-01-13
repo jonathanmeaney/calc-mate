@@ -12,7 +12,7 @@ class Calculator {
     if(country === COUNTRIES.IE){
       switch(type){
         case CALCULATION_TYPES.PAYE:
-          calculator = new IEPaye(inputs, taxYear);
+          calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
           break;
         case CALCULATION_TYPES.USC:
           calculator = new IEPaye(inputs, taxYear);

@@ -28,7 +28,8 @@ const Paye = ({
     pay: '',
     frequency: '1',
     period: '1',
-    taxStatus: '1'
+    taxStatus: '1',
+    taxYear: String(new Date().getFullYear())
   });
 
   const updateCalculationValue = (e) => {
