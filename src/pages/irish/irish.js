@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
@@ -30,8 +28,10 @@ const IrishPage = () => {
               <Paye labelCol={labelCol} inputCol={inputCol} />
             </Tab>
             <Tab eventKey='usc' title='USC'>
+              <h3>Coming Soon</h3>
             </Tab>
             <Tab eventKey='prsi' title='PRSI'>
+              <h3>Coming Soon</h3>
             </Tab>
           </Tabs>
         </Col>

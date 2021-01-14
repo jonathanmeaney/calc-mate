@@ -31,6 +31,7 @@ const Paye = ({
     taxStatus: '1',
     taxYear: String(new Date().getFullYear())
   });
+  const payInputRef = React.createRef();
 
   const updateCalculationValue = (e) => {
     const {name, value, type} = e.target;
@@ -70,6 +71,7 @@ const Paye = ({
 
   const calculate = (e) => {
     e.preventDefault();
+    payInputRef.current.blur();
 
     const results = Calculator.calculate(CALCULATION_TYPES.PAYE, {
       country: COUNTRIES.IE,
@@ -100,6 +102,12 @@ const Paye = ({
       value: results.value,
       country: 'IE'
     }));
+
+    const yOffset = -75;
+    const element = document.getElementById('calculation-results');
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({top: y, behavior: 'smooth'});
   }
 
   return (
@@ -116,6 +124,7 @@ const Paye = ({
                   <InputGroup.Text>€</InputGroup.Text>
                 </InputGroup.Prepend>
                 <Form.Control
+                  ref={payInputRef}
                   name='pay'
                   as='input'
                   type='number'

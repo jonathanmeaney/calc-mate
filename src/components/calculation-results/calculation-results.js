@@ -22,7 +22,7 @@ const CalculationResults = ({
   }
 
   return (
-    <div className='calculation-results'>
+    <div className='calculation-results' id='calculation-results'>
       {Object.keys(results).length > 0 && (
         <Fade>
           <Card bg='success'>
