@@ -47,7 +47,8 @@ const App = () => {
             <Nav.Link eventKey="2" as={Link} to='/irish' id='/irish' className={activeTab === '/irish' ? 'active' : activeTab === '/irish' ? 'active' : ''} onClick={updateActiveTab}>Irish</Nav.Link>
             <Nav.Link eventKey="3" as={Link} to='/help' id='/help' className={activeTab === '/help' ? 'active' : activeTab === '/help' ? 'active' : ''} onClick={updateActiveTab}>Help</Nav.Link>
             <Nav.Item>
-              <a href='https://github.com/jonathanmeaney/calc-mate'  target='_blank' className='github-link'><DiGithubBadge /></a>
+              <a href='https://github.com/jonathanmeaney/calc-mate' target='_blank'
+              rel='noreferrer' className='github-link'><DiGithubBadge /></a>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
@@ -70,7 +71,7 @@ const App = () => {
         </Row>
       </Container>
       <footer className='app-footer clear'>
-        <a href='https://jonathan.meaney.dev' target='_blank'>Jonathan II Meaney</a> &copy; 2021
+        <a href='https://jonathan.meaney.dev' target='_blank' rel='noreferrer'>Jonathan II Meaney</a> &copy; 2021
       </footer>
     </div>
   );
