@@ -25,6 +25,7 @@ import './styles.scss';
 const App = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState(location.pathname);
+  const [navExpanded, setNavExpanded] = useState(false);
 
   const updateActiveTab = (tab) => {
     setActiveTab(tab);
@@ -36,13 +37,18 @@ const App = () => {
     }
   }, [location, activeTab, setActiveTab]);
 
+  const closeNav = () => {
+    setNavExpanded(false)
+  }
+
+
   return (
     <div className="app">
-      <Navbar bg="dark" variant="dark" fixed="top" expand="md">
+      <Navbar bg="dark" variant="dark" fixed="top" expand="md" onToggle={(e) => setNavExpanded(e)} expanded={navExpanded}>
         <Navbar.Brand href="/">Calc Mate <FaCalculator /></Navbar.Brand>
         <Navbar.Toggle aria-controls="main-nav" />
         <Navbar.Collapse id="main-nav">
-          <Nav className="mr-auto">
+          <Nav className="mr-auto" onSelect={closeNav}>
             <Nav.Link eventKey="1" as={Link} to='/uk' id='/uk' className={activeTab === '/uk' ? 'active' : activeTab === '/uk' ? 'active' : ''} onClick={updateActiveTab}>UK</Nav.Link>
             <Nav.Link eventKey="2" as={Link} to='/irish' id='/irish' className={activeTab === '/irish' ? 'active' : activeTab === '/irish' ? 'active' : ''} onClick={updateActiveTab}>Irish</Nav.Link>
             <Nav.Link eventKey="3" as={Link} to='/help' id='/help' className={activeTab === '/help' ? 'active' : activeTab === '/help' ? 'active' : ''} onClick={updateActiveTab}>Help</Nav.Link>
