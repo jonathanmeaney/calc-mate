@@ -1,14 +1,19 @@
 import React from 'react';
 
+import { FaInfoCircle } from 'react-icons/fa';
+
 const HelpPage = () => {
   return (
     <div className='help'>
       <h1>Help</h1>
       <p>
-        Payroll Buddy is the perfect companion for Payroll. It automates the repetitive tasks that developers and QA would be all too familar with.
+        Calc Mate is an application that lets you perform different tax calculations for the UK and Ireland.
       </p>
       <p>
-        Payroll Buddy supports UK and Irish businesses independently and gives you the option to export/import data so you can easily backup your data or share it with other Payroll Buddy users.
+        Simply pick the country and calculation type you want to do. Then fill in the form with the details and click calculate. The result will be displayed along with an <FaInfoCircle /> and when you click on it you will see the different steps of the calculation and how the final result was achieved.
+      </p>
+      <p>
+        Each calculation you perform is stored in the history. You will be able to see all the calculations you have done recently and their results.
       </p>
     </div>
   );
