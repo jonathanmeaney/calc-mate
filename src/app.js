@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Navitem from 'react-bootstrap/Navitem';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -47,9 +46,9 @@ const App = () => {
             <Nav.Link eventKey="1" as={Link} to='/uk' id='/uk' className={activeTab === '/uk' ? 'active' : activeTab === '/uk' ? 'active' : ''} onClick={updateActiveTab}>UK</Nav.Link>
             <Nav.Link eventKey="2" as={Link} to='/irish' id='/irish' className={activeTab === '/irish' ? 'active' : activeTab === '/irish' ? 'active' : ''} onClick={updateActiveTab}>Irish</Nav.Link>
             <Nav.Link eventKey="3" as={Link} to='/help' id='/help' className={activeTab === '/help' ? 'active' : activeTab === '/help' ? 'active' : ''} onClick={updateActiveTab}>Help</Nav.Link>
-            <Navitem>
+            <Nav.Item>
               <a href='https://github.com/jonathanmeaney/calc-mate'  target='_blank' className='github-link'><DiGithubBadge /></a>
-            </Navitem>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
