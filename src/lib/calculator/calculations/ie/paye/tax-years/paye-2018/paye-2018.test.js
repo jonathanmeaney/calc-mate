@@ -4,8 +4,18 @@ describe('Paye2018', () => {
   let calculator;
 
   describe('properties', () => {
+    describe('and no inputs specified', () => {
+      beforeEach(() => {
+        calculator = new Paye2018();
+      });
+
+      it('has inputs {}', () => {
+        expect(calculator.inputs).toEqual({});
+      });
+    });
+
     beforeEach(() => {
-      calculator = new Paye2018();
+      calculator = new Paye2018({});
     });
 
     it('has inputs {}', () => {
@@ -74,7 +84,7 @@ describe('Paye2018', () => {
       });
 
       it('includes the calculation steps in results', () => {
-        expect(results.steps).toEqual(['Calculate std rate cut off for period: (34550 / 52) * 1 = 664.42', 'Apply the standard rate of 20% to the income in the rate band: 500 * 20% = 100.00', 'Pay is less than std rate cut off for period so not applying 40% rate: 0', 'Gross tax: 100.00 + 0 = 100', 'Tax Credit for period: 3300 / 52 * 1 = 63.46', 'Gross tax less tax credits: 100 - 63.46 = 36.54', 'Tax payable: 36.54']);
+        expect(results.steps).toEqual(['Calculate std rate cut off for period: (34550 / 52) * 1 = 664.42', 'Apply the standard rate of 20% to the income in the rate band: 500 * 20% = 100.00', 'Pay is less than std rate cut off for period so not applying 40% rate: 0', 'Gross tax: 100.00 + 0 = 100.00', 'Tax Credit for period: 3300 / 52 * 1 = 63.46', 'Gross tax less tax credits: 100.00 - 63.46 = 36.54', 'Tax payable: 36.54']);
       });
     });
 
@@ -100,7 +110,7 @@ describe('Paye2018', () => {
       });
 
       it('includes the calculation steps in results', () => {
-        expect(results.steps).toEqual(['Calculate std rate cut off for period: (34550 / 52) * 1 = 664.42', 'Apply the standard rate of 20% to the income in the rate band: 100 * 20% = 20.00', 'Pay is less than std rate cut off for period so not applying 40% rate: 0', 'Gross tax: 20.00 + 0 = 20', 'Tax Credit for period: 3300 / 52 * 1 = 63.46', 'Gross tax less tax credits results in negative, 0 tax payable: 0', 'Tax payable: 0']);
+        expect(results.steps).toEqual(['Calculate std rate cut off for period: (34550 / 52) * 1 = 664.42', 'Apply the standard rate of 20% to the income in the rate band: 100 * 20% = 20.00', 'Pay is less than std rate cut off for period so not applying 40% rate: 0', 'Gross tax: 20.00 + 0 = 20.00', 'Tax Credit for period: 3300 / 52 * 1 = 63.46', 'Gross tax less tax credits results in negative, 0 tax payable: 0', 'Tax payable: 0']);
       });
     });
   });

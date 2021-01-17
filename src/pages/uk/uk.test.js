@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'test/enzyme-adapter';
+import { shallow } from 'enzyme';
 
 import Uk from 'pages/uk';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'test/enzyme-adapter';
+import { shallow } from 'enzyme';
 
 import NotFoundPage from 'pages/not-found';
 
@@ -16,6 +16,6 @@ describe('NotFoundPage', () => {
     expect(headings.length).toEqual(1);
 
     const heading = headings.at(0);
-    expect(heading.props().title).toEqual('Not Found');
+    expect(heading.props().children).toEqual('Not Found');
   });
 });

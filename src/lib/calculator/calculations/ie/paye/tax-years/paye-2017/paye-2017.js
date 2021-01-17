@@ -28,7 +28,7 @@ class Paye2017 {
     steps.push(`Apply the standard rate of 20% to the income in the rate band: ${taxedAt20Percent} * 20% = ${tax20Percent}`);
 
     // Apply the higher rate of 40% on the balance
-    const taxedAt40Percent = pay - stdRateCutOffForPeriod;
+    const taxedAt40Percent = (pay - stdRateCutOffForPeriod).toFixed(2);
 
     let tax40Percent = parseFloat(taxedAt40Percent * 0.4).toFixed(2);
     let tax40PercentStep = `Apply the higher rate of 40% on the balance: (${pay} - ${stdRateCutOffForPeriod}) * 40% = ${tax40Percent}`;
@@ -39,7 +39,7 @@ class Paye2017 {
     steps.push(tax40PercentStep);
 
     // Sum up the 20% + 40% tax
-    const grossTax = parseFloat(tax20Percent) + parseFloat(tax40Percent);
+    const grossTax = (parseFloat(tax20Percent) + parseFloat(tax40Percent)).toFixed(2);
     steps.push(`Gross tax: ${tax20Percent} + ${tax40Percent} = ${grossTax}`);
 
     // Calculate the tax credit for period
