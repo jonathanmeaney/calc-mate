@@ -15,10 +15,10 @@ class Calculator {
           calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
           break;
         case CALCULATION_TYPES.USC:
-          calculator = new IEPaye(inputs, taxYear);
+          calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
           break;
         case CALCULATION_TYPES.PRSI:
-          calculator = new IEPaye(inputs, taxYear);
+          calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
           break;
         default:
       }
@@ -27,19 +27,23 @@ class Calculator {
     if(country === COUNTRIES.UK){
       switch(type){
         case CALCULATION_TYPES.PAYE:
-          calculator = new IEPaye(inputs, taxYear);
+          calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
           break;
         case CALCULATION_TYPES.USC:
-          calculator = new IEPaye(inputs, taxYear);
+          calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
           break;
         case CALCULATION_TYPES.PRSI:
-          calculator = new IEPaye(inputs, taxYear);
+          calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
           break;
         default:
       }
     }
 
-    return calculator.calculate();
+    if(calculator){
+      return calculator.calculate();
+    }
+
+    return {};
   }
 }
 

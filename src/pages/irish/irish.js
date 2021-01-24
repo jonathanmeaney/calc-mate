@@ -13,6 +13,11 @@ const IrishPage = () => {
 
   const [key, setKey] = useState('paye');
 
+  /* istanbul ignore next */
+  const selectTab = (tab) => {
+    setKey(tab);
+  }
+
   return (
     <div className='irish'>
       <h2>Irish</h2>
@@ -22,7 +27,7 @@ const IrishPage = () => {
             id='calculation-tabs'
             defaultActiveKey='paye'
             activeKey={key}
-            onSelect={(k) => setKey(k)}
+            onSelect={selectTab}
           >
             <Tab eventKey='paye' title='PAYE'>
               <Paye labelCol={labelCol} inputCol={inputCol} />

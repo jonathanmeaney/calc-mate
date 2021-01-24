@@ -1,4 +1,5 @@
 import { CALCULATION_TYPES } from 'constants/enums';
+import { frequencyMaxPeriodMap } from 'constants/frequencies';
 
 class Paye2017 {
   constructor(inputs = {}){
@@ -10,11 +11,11 @@ class Paye2017 {
 
   calculate() {
     // const { frequency, taxStatus } = this.inputs;
-    const period = parseFloat(this.inputs.period);
-    const pay = parseFloat(this.inputs.pay);
+    const period = parseFloat(this.inputs.period) || '1';
+    const pay = parseFloat(this.inputs.pay) || parseFloat('0.00');
     const yearlyStdRateCutOff = this.yearlyStdRateCutOff;
     const taxCredit = this.yearlyTaxCredits;
-    const periods = parseFloat(this.inputs.periods);
+    const periods = frequencyMaxPeriodMap[String(this.inputs.frequency)] || frequencyMaxPeriodMap['1'];
     const steps = [];
 
     // Work out the std rate cut off for the period

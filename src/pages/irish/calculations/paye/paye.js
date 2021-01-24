@@ -34,13 +34,8 @@ const Paye = ({
   const payInputRef = React.createRef();
 
   const updateCalculationValue = (e) => {
-    const {name, value, type} = e.target;
-
+    const {name, value} = e.target;
     let values = { [name]: value};
-    if(type && type === 'checkbox'){
-      const currentValue = calculationValues[name];
-      values[name] = !Boolean(currentValue);
-    }
 
     if(name === 'frequency'){
       values['period'] = '1';
@@ -51,7 +46,7 @@ const Paye = ({
       ...values
     });
 
-    console.log(calculationValues)
+    // console.log(calculationValues)
   }
 
   const periodOptions = () => {
@@ -80,8 +75,7 @@ const Paye = ({
         period: calculationValues.period,
         pay: calculationValues.pay,
         frequency: calculationValues.frequency,
-        taxStatus: calculationValues.taxStatus,
-        periods: frequencyMaxPeriodMap[calculationValues.frequency]
+        taxStatus: calculationValues.taxStatus
       }
     });
 
@@ -105,9 +99,11 @@ const Paye = ({
 
     const yOffset = -75;
     const element = document.getElementById('calculation-results');
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-    window.scrollTo({top: y, behavior: 'smooth'});
+    /* istanbul ignore next */
+    if(element){
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: 'smooth'});
+    }
   }
 
   return (

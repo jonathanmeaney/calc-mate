@@ -1,4 +1,4 @@
-import React, { useState as useStateMock } from 'react';
+import React from 'react';
 
 import { shallow } from 'enzyme';
 
@@ -10,6 +10,14 @@ import IrishPage from 'pages/irish';
 
 describe('IrishPage', () => {
   let wrapper;
+
+  // const setState = jest.fn();
+  // const useStateSpy = jest.spyOn(React, 'useState')
+  // useStateSpy.mockImplementation((init) => [init, setState]);
+
+  // afterEach(() => {
+  //   jest.clearAllMocks();
+  // });
 
   beforeEach(() => {
     wrapper = shallow(<IrishPage />);
@@ -32,17 +40,17 @@ describe('IrishPage', () => {
     expect(tabs.at(2).props().title).toEqual('PRSI');
   });
 
-  describe('changing tabs', () => {
-    it('calls setKey', () => {
-      // const tabsContainer = wrapper.find(Tabs)
-      // const tabs = wrapper.find(Tab)
-      // const button = wrapper.find('button');
-      // const uscTab = tabs.at(1);
-      // tabs.at(1).simulate('change');
-      // tabsContainer.simulate('select');
-      // button.simulate('click');
-    });
-  });
+  // describe('changing tabs', () => {
+  //   it('calls setKey', () => {
+  //     console.log(wrapper.debug());
+  //     const tabsContainer = wrapper.find(Tabs)
+  //     const tabs = wrapper.find(Tab)
+  //     const uscTab = tabs.at(1);
+  //     tabs.at(1).simulate('click');
+  //     tabsContainer.props().onSelect();
+  //     expect(setState).toHaveBeenCalledWith(1);
+  //   });
+  // });
 
   describe('PAYE tab', () => {
     it('renders the Paye component', () => {
