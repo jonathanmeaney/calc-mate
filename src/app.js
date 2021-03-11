@@ -77,7 +77,7 @@ const App = () => {
         </Row>
       </Container>
       <footer className='app-footer clear'>
-        <a href='https://jonathan.meaney.dev' target='_blank' rel='noreferrer'>Jonathan II Meaney</a> &copy; 2021
+        <a href='https://jonathan-meaney.dev' target='_blank' rel='noreferrer'>Jonathan II Meaney</a> &copy; 2021
       </footer>
     </div>
   );
