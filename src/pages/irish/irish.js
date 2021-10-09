@@ -6,6 +6,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
 import Paye from './calculations/paye';
+import Usc from './calculations/usc';
 
 const IrishPage = () => {
   const labelCol = 4;
@@ -33,7 +34,7 @@ const IrishPage = () => {
               <Paye labelCol={labelCol} inputCol={inputCol} />
             </Tab>
             <Tab eventKey='usc' title='USC'>
-              <h3>Coming Soon</h3>
+              <Usc labelCol={labelCol} inputCol={inputCol} />
             </Tab>
             <Tab eventKey='prsi' title='PRSI'>
               <h3>Coming Soon</h3>

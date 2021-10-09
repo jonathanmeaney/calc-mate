@@ -59,6 +59,14 @@ footer.app-footer{
   clear: both;
 }
 
+.result-value-attribute{
+  margin-right: 5px;
+
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
 @keyframes rotation {
   0% {
     -webkit-transform: rotate(0deg);

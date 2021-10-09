@@ -18,6 +18,14 @@ export const ukTaxYears = [
   {
     id: 'uk-5',
     name: '2020/2021'
+  },
+  {
+    id: 'uk-6',
+    name: '2021/2022'
+  },
+  {
+    id: 'uk-7',
+    name: '2022/2023'
   }
 ];
 
@@ -41,5 +49,9 @@ export const irishTaxYears = [
   {
     id: 'ie-5',
     name: '2021'
+  },
+  {
+    id: 'ie-6',
+    name: '2022'
   }
 ];
