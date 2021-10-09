@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
+
+import { taxYearSelector, updateTaxYear } from 'slices/tax-year';
 
 import { irishTaxYears, ukTaxYears } from 'constants/tax-years';
 import { COUNTRIES } from 'constants/enums';
@@ -14,10 +17,16 @@ const TaxYearPicker = ({
   onChange,
   country
 }) => {
-  const [selectedValue, setSelectedValue] = useState(String(new Date().getFullYear()));
+  const dispatch = useDispatch();
+  const taxYear = useSelector(taxYearSelector);
+
+  const selected = taxYear || String(new Date().getFullYear())
+  const [selectedValue, setSelectedValue] = useState(selected);
 
   const selectValue = (e) => {
-    setSelectedValue(e.currentTarget.value);
+    const value = e.currentTarget.value;
+    setSelectedValue(value);
+    dispatch(updateTaxYear(value))
     onChange(e);
   }
 

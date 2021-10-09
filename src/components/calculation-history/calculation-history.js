@@ -8,6 +8,8 @@ import Table from 'react-bootstrap/Table';
 
 import { calculationsSelector } from 'slices/calculations';
 
+import TextUtils from 'lib/text-utils';
+
 import './style.scss';
 
 const CalculationHistory = () => {
@@ -42,6 +44,30 @@ const CalculationHistory = () => {
         </div>
       );
     }
+
+    const calculationValue = () => {
+      let values = calculation.value;
+      if(typeof values === 'object'){
+        let attributes = [];
+        Object.keys(calculation.value).forEach((key) => {
+          const value = calculation.value[key];
+          attributes.push(<tr key={uuidv4()}><td>{TextUtils.capitalize(key)}:</td><td><Badge variant='secondary'>{String(value)}</Badge></td></tr>);
+        });
+
+        values = (
+          <Table size='sm' className='values-table'>
+            <tbody>
+              {attributes}
+            </tbody>
+          </Table>
+        );
+      }
+
+      return (
+        <Badge variant='light'>{values}</Badge>
+      )
+    }
+
     return(
       <Card
         bg='info'
@@ -53,7 +79,7 @@ const CalculationHistory = () => {
         <Card.Body>
           <Card.Title>{flag} {calculation.type} Calculation</Card.Title>
           {inputTable}
-          <Card.Title className='right-aligned'>{calculation.type}: <Badge variant='light'>{calculation.value}</Badge></Card.Title>
+          <Card.Title className='right-aligned'>{calculation.type}: {calculationValue()}</Card.Title>
         </Card.Body>
       </Card>
     )

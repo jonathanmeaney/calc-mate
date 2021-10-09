@@ -19,4 +19,14 @@
     max-height: 100vh;
     overflow: auto;
   }
+
+  .values-table {
+    margin-bottom: 0 !important;
+
+    tr:first-child {
+      td {
+        border: none;
+      }
+    }
+  }
 }

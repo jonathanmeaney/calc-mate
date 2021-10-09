@@ -23,11 +23,13 @@ const CalculationSteps = ({
           <Badge className='step-number' variant='primary'>{index+1}</Badge>
           <div className='step-body center-aligned'>
             {stepDescription}
-            <Card bg='light' text='dark'>
-              <Card.Body>
-                {stepCalculation}
-              </Card.Body>
-            </Card>
+            {stepCalculation && (
+              <Card bg='light' text='dark'>
+                <Card.Body>
+                  {stepCalculation}
+                </Card.Body>
+              </Card>
+            )}
           </div>
         </Card.Body>
       </Card>

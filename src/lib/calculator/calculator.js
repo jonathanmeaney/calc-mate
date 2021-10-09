@@ -1,6 +1,7 @@
 import { CALCULATION_TYPES, COUNTRIES } from 'constants/enums';
 
 import IEPaye from './calculations/ie/paye';
+import IEUsc from './calculations/ie/usc';
 
 class Calculator {
   static calculate(type, options = {}) {
@@ -15,7 +16,7 @@ class Calculator {
           calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
           break;
         case CALCULATION_TYPES.USC:
-          calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
+          calculator = IEUsc.getCalculatorForTaxYear(inputs, taxYear);
           break;
         case CALCULATION_TYPES.PRSI:
           calculator = IEPaye.getCalculatorForTaxYear(inputs, taxYear);
