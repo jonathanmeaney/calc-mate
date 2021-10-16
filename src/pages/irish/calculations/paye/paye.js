@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Row from 'react-bootstrap/Row';
@@ -19,17 +19,23 @@ import Calculator from 'lib/calculator';
 import CalculationResults from 'components/calculation-results';
 import TaxYearPicker from 'components/tax-year-picker';
 
+import { taxYearSelector } from 'slices/tax-year';
+
 const Paye = ({
   labelCol,
   inputCol
 }) => {
   const dispatch = useDispatch();
+  const taxYear = useSelector(taxYearSelector);
+
+  const selected = taxYear || String(new Date().getFullYear());
+
   const [calculationValues, setCalculationValues] = useState({
     pay: '',
     frequency: '1',
     period: '1',
     taxStatus: '1',
-    taxYear: String(new Date().getFullYear())
+    taxYear: selected
   });
   const payInputRef = React.createRef();
 
@@ -165,7 +171,7 @@ const Paye = ({
             </Col>
           </Form.Group>
 
-          <Form.Group as={Row}>
+          {/* <Form.Group as={Row}>
             <Form.Label column xs={labelCol}>Tax Status</Form.Label>
             <Col xs={inputCol}>
               <Form.Control
@@ -180,7 +186,7 @@ const Paye = ({
                 <option value='3'>Emergency</option>
               </Form.Control>
             </Col>
-          </Form.Group>
+          </Form.Group> */}
 
           <Button
             block

@@ -1,12 +1,12 @@
-import Usc2021 from './usc-2021';
+import Usc2022 from './usc-2022';
 
-describe('Usc2021', () => {
+describe('Usc2022', () => {
   let calculator;
 
   describe('properties', () => {
     describe('and no inputs specified', () => {
       beforeEach(() => {
-        calculator = new Usc2021();
+        calculator = new Usc2022();
       });
 
       it('has inputs {}', () => {
@@ -15,15 +15,15 @@ describe('Usc2021', () => {
     });
 
     beforeEach(() => {
-      calculator = new Usc2021({});
+      calculator = new Usc2022({});
     });
 
     it('has inputs {}', () => {
       expect(calculator.inputs).toEqual({});
     });
 
-    it('has taxYear 2021', () => {
-      expect(calculator.taxYear).toEqual('2021');
+    it('has taxYear 2022', () => {
+      expect(calculator.taxYear).toEqual('2022');
     });
 
     describe('rateBands', () => {
@@ -40,13 +40,13 @@ describe('Usc2021', () => {
 
       it('has middle band', () => {
         expect(rateBands.middle).toEqual({
-          percentage: 2, threshold: 8675
+          percentage: 2, threshold: 9283
         });
       });
 
       it('has upper band', () => {
         expect(rateBands.upper).toEqual({
-          percentage: 4.5, threshold: 49357
+          percentage: 4.5, threshold: 48749
         });
       });
 
@@ -72,7 +72,7 @@ describe('Usc2021', () => {
         let results;
 
         beforeEach(() => {
-          calculator = new Usc2021(inputs);
+          calculator = new Usc2022(inputs);
           results = calculator.calculate();
         });
 
@@ -100,7 +100,7 @@ describe('Usc2021', () => {
         let results;
 
         beforeEach(() => {
-          calculator = new Usc2021(inputs);
+          calculator = new Usc2022(inputs);
           results = calculator.calculate();
         });
 
@@ -132,7 +132,7 @@ describe('Usc2021', () => {
         let results;
 
         beforeEach(() => {
-          calculator = new Usc2021(inputs);
+          calculator = new Usc2022(inputs);
           results = calculator.calculate();
         });
 
@@ -160,7 +160,7 @@ describe('Usc2021', () => {
         let results;
 
         beforeEach(() => {
-          calculator = new Usc2021(inputs);
+          calculator = new Usc2022(inputs);
           results = calculator.calculate();
         });
 

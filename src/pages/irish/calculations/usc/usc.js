@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Row from 'react-bootstrap/Row';
@@ -17,15 +17,21 @@ import Calculator from 'lib/calculator';
 import CalculationResults from 'components/calculation-results';
 import TaxYearPicker from 'components/tax-year-picker';
 
+import { taxYearSelector } from 'slices/tax-year';
+
 const Usc = ({
   labelCol,
   inputCol
 }) => {
   const dispatch = useDispatch();
+  const taxYear = useSelector(taxYearSelector);
+
+  const selected = taxYear || String(new Date().getFullYear());
+
   const [calculationValues, setCalculationValues] = useState({
     pay: '',
     frequency: '1',
-    taxYear: String(new Date().getFullYear())
+    taxYear: selected
   });
   const payInputRef = React.createRef();
 
@@ -58,7 +64,7 @@ const Usc = ({
       ...calculationValues,
       results
     });
-console.log('calculationValues',calculationValues, 'results', results);
+
     dispatch(addCalculation({
       inputs: {
         pay: calculationValues.pay,
