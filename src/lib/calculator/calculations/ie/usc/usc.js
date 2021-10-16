@@ -3,6 +3,7 @@ import Usc2018 from './tax-years/usc-2018';
 import Usc2019 from './tax-years/usc-2019';
 import Usc2020 from './tax-years/usc-2020';
 import Usc2021 from './tax-years/usc-2021';
+import Usc2022 from './tax-years/usc-2022';
 
 class Usc {
   static getCalculatorForTaxYear(inputs, taxYear){
@@ -22,6 +23,9 @@ class Usc {
         break;
       case '2021':
         calculator = new Usc2021(inputs);
+        break;
+      case '2022':
+        calculator = new Usc2022(inputs);
         break;
       default:
     }

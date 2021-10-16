@@ -3,6 +3,7 @@ import Usc2018 from './tax-years/usc-2018';
 import Usc2019 from './tax-years/usc-2019';
 import Usc2020 from './tax-years/usc-2020';
 import Usc2021 from './tax-years/usc-2021';
+import Usc2022 from './tax-years/usc-2022';
 import Usc from './usc';
 
 describe('Usc', () => {
@@ -32,5 +33,8 @@ describe('Usc', () => {
       expect(Usc.getCalculatorForTaxYear({}, '2021')).toEqual(new Usc2021({}));
     });
 
+    it('returns Usc calculator for 2022', () => {
+      expect(Usc.getCalculatorForTaxYear({}, '2022')).toEqual(new Usc2022({}));
+    });
   });
 });

@@ -3,6 +3,7 @@ import Paye2018 from './tax-years/paye-2018';
 import Paye2019 from './tax-years/paye-2019';
 import Paye2020 from './tax-years/paye-2020';
 import Paye2021 from './tax-years/paye-2021';
+import Paye2022 from './tax-years/paye-2022';
 
 class Paye {
   static getCalculatorForTaxYear(inputs, taxYear){
@@ -22,6 +23,9 @@ class Paye {
         break;
       case '2021':
         calculator = new Paye2021(inputs);
+        break;
+      case '2022':
+        calculator = new Paye2022(inputs);
         break;
       default:
     }

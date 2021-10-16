@@ -3,6 +3,7 @@ import Paye2018 from './tax-years/paye-2018';
 import Paye2019 from './tax-years/paye-2019';
 import Paye2020 from './tax-years/paye-2020';
 import Paye2021 from './tax-years/paye-2021';
+import Paye2022 from './tax-years/paye-2022';
 import Paye from './paye';
 
 describe('Paye', () => {
@@ -32,5 +33,8 @@ describe('Paye', () => {
       expect(Paye.getCalculatorForTaxYear({}, '2021')).toEqual(new Paye2021({}));
     });
 
+    it('returns Paye calculator for 2022', () => {
+      expect(Paye.getCalculatorForTaxYear({}, '2022')).toEqual(new Paye2022({}));
+    });
   });
 });

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
 
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
@@ -20,7 +19,7 @@ const TaxYearPicker = ({
   const dispatch = useDispatch();
   const taxYear = useSelector(taxYearSelector);
 
-  const selected = taxYear || String(new Date().getFullYear())
+  const selected = taxYear || String(new Date().getFullYear());
   const [selectedValue, setSelectedValue] = useState(selected);
 
   const selectValue = (e) => {
